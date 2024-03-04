@@ -19,23 +19,23 @@ class UserManager(BaseUserManager):
 
         return user
 
-    # def create_superuser(self, email, password):
-    #     """Creates and saves a new super user"""
-    #     user = self.create_user(email, password)
-    #     user.is_staff = True
-    #     user.is_superuser = True
-    #     user.save(using=self._db)
+    def create_superuser(self, email, password):
+        """Creates and saves a new super user"""
+        user = self.create_user(email, password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
 
-    #     return user
+        return user
 
-    # def create_staffuser(self, email, password):
-    #     """Creates and saves a new staff user"""
-    #     user = self.create_user(email, password)
-    #     user.is_staff = True
-    #     user.save(using=self._db)
+    def create_staffuser(self, email, password):
+        """Creates and saves a new staff user"""
+        user = self.create_user(email, password)
+        user.is_staff = True
+        user.save(using=self._db)
 
-        # return user
-        # return user.save(using=self._db)
+        return user
+        return user.save(using=self._db)
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -48,5 +48,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-
-    
