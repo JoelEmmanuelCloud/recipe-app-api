@@ -28,15 +28,6 @@ class UserManager(BaseUserManager):
 
         return user
 
-    def create_staffuser(self, email, password):
-        """Creates and saves a new staff user"""
-        user = self.create_user(email, password)
-        user.is_staff = True
-        user.save(using=self._db)
-
-        return user
-        return user.save(using=self._db)
-
 
 class User(AbstractBaseUser, PermissionsMixin):
     """User in the system."""
